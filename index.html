@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP - PT & SAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Source+Code+Pro:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body id="body">
+    <div id="div_index">
+        <h3>
+            <button id="button_mesAnt" type="button"> <- </button>
+            <span id="span_mes"></span>
+            <button id="button_mesSig" type="button"> -> </button>
+        </h3>
+        <form>
+            <!-- Retenciones -->
+            <table>
+                <thead>
+                    <tr class="el_center">
+                        <th class="th_conceptos">Retenciones</th>
+                        <th class="th_montos">Montos</th>
+                        <th>Contable</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_retenciones"></tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="div_right el_bold">Total de Ingresos</div>
+                        </td>
+                        <td>
+                            <div id="div_totalIngresos" class="div_right el_monosp el_bold">$ 0.00 </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="div_right el_bold">Base ISR Intermediarios</div>
+                            <div class="div_right el_bold">Base ISR Directo</div>
+                            <div class="div_right el_bold">ISR retenido</div>
+                        </td>
+                        <td>
+                            <div id="div_baseISRinter" class="div_right el_monosp el_bold">$ 0.00 </div>
+                            <div id="div_baseISRdirect" class="div_right el_monosp el_bold">$ 0.00 </div>
+                            <div id="div_ISRretenido" class="div_right el_monosp el_bold">$ 0.00</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="div_right el_bold">Base IVA Intermediarios</div>
+                            <div class="div_right el_bold">Base IVA Directo</div>
+                            <div class="div_right el_bold">IVA retenido</div>
+                        </td>
+                        <td>
+                            <div id="div_baseIVAinter" class="div_right el_monosp el_bold">$ 0.00</div>
+                            <div id="div_baseIVAdirect" class="div_right el_monosp el_bold">$ 0.00</div>
+                            <div id="div_IVAretenido" class="div_right el_monosp el_bold">$ 0.00</div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- Gastos -->
+            <table>
+                <thead>
+                    <tr class="el_center">
+                        <th class="th_conceptos">Gastos</th>
+                        <th class="th_montos">Montos</th>
+                        <th>Acreditable</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_gastos"></tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="div_right el_bold">IVA Acreditable</div>
+                        </td>
+                        <td>
+                            <div id="div_IVAacreditable" class="div_right el_monosp el_bold">$ 0.00</div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <input type="hidden" id="hidden_ym" name="hidden_ym">
+        </form>
+    </div>
+    
+    <script type="module" src="./js/index.js"></script>
+    <script src="./js/calculos.js"></script>
+</body>
+</html>

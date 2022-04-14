@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP - PT & SAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400&family=Source+Code+Pro:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        #div_index {
+            width: 1000px;
+            margin: auto;
+        }
+        table {
+            width: 100%;
+            border: 1px solid black;
+            margin-bottom: 40px;
+        }
+        th {
+            padding: 20px 0px;
+        }
+        td {
+            padding: 10px 20px;
+            border: 0px solid gray;
+        }
+        th.th_conceptos {
+            width: 70%;
+        }
+        th.th_montos {
+            width: 13%;
+            padding-right: 20px;
+            text-align: right;
+        }
+        div.div_right {
+            text-align: right;
+        }
+        .el_center {
+            text-align: center;
+        }
+        .el_monosp {
+            font-family: 'Source Code Pro', monospace;
+        }
+        .el_bold {
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div id="div_index">
+        <h3 id="h3_mes">Enero - 2022</h3>
+        <form>
+            <!-- CFDIs de ingresos
+            <table>
+                <thead>
+                    <tr class="el_center">
+                        <th class="th_conceptos">Ingresos</th>
+                        <th class="th_montos">Montos</th>
+                        <th>Contable</th>
+                        <th>Intermediarios</th>
+                        <th>Directo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="el_bold">UBER PORTIER MÉXICO, S. DE R.L. DE C.V.</div>
+                            <div>2022-01-18T02:32:51</div>
+                            <ul>
+                                <li>Servicios de promoción comercial. Servicios de promoción de la aplicación UberEats 10 ene. 2022 - 16 ene. 2022</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="div_right">$ 544.34</div>
+                            <div class="div_right">$ 87.10</div>
+                            <div class="div_right">$ 631.44</div>
+                        </td>
+                        <td class="el_center"><input type="checkbox" checked></td>
+                        <td class="el_center"><input type="radio" checked></td>
+                        <td class="el_center"><input type="radio"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="el_bold">SASEEKA MADUWANTHI WEERABADDHANAGE</div>
+                            <div>2022-01-18T15:47:52</div>
+                            <ul>
+                                <li>Servicios de mensajería en bicicleta o motocicleta. Servicio independiente de entrega de alimentos preparados, a través de la aplicación UberEats</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="div_right">$ 9.48</div>
+                            <div class="div_right">$ 1.52</div>
+                            <div class="div_right">$ 11.00</div>
+                        </td>
+                        <td class="el_center"><input type="checkbox" checked></td>
+                        <td class="el_center"><input type="radio"></td>
+                        <td class="el_center"><input type="radio" checked></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="el_bold">PÚBLICO EN GENERAL</div>
+                            <div>2022-01-03T19:06:18</div>
+                            <ul>
+                                <li>VENTAS REALIZADAS AL PUBLICO EN GENERAL CORRESPONDIENTES A DICIEMBRE DE 2021</li>
+                            </ul>    
+                        </td>
+                        <td>
+                            <div class="div_right">$ 1201.03</div>
+                            <div class="div_right">$ 192.17</div>
+                            <div class="div_right">$ 1393.20</div>
+                        </td>
+                        <td class="el_center"><input type="checkbox"></td>
+                        <td class="el_center"><input type="radio" disabled></td>
+                        <td class="el_center"><input type="radio" disabled></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="div_right" style="font-weight:bold;">Subtotal</div>
+                            <div class="div_right" style="font-weight:bold;">IVA</div>
+                        </td>
+                        <td>
+                            <div class="div_right" style="font-weight:bold;">$ 544.34</div>
+                            <div class="div_right" style="font-weight:bold;">$ 87.10</div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            -->
+
+            <!-- Retenciones -->
+            <table>
+                <thead>
+                    <tr class="el_center">
+                        <th class="th_conceptos">Retenciones</th>
+                        <th class="th_montos">Montos</th>
+                        <th>Contable</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_retenciones">
+                    <tr>
+                        <td>
+                            <div id="div_razonSocial_r_0" class="el_bold">UBER PORTIER MEXICO</div>
+                            <div class="el_monosp">
+                                <span id="span_fecha_r_0">2022-03-03T13:17:34</span>
+                                <span> - </span>
+                                <span id="span_periodo_r_0" class="el_bold">2021_1-1</span>
+                            </div>
+                            <p>Tasa ISR --- <span id="span_tasaISR_r_0" class="el_monosp el_bold">2.1%</span></p>
+                            <ul>
+                                <li>Base ISR --- <span id="span_baseISR_r_0" class="el_monosp el_bold">$ 894.26</span></li>
+                                <li>Base IVA --- <span id="span_baseIVA_r_0" class="el_monosp el_bold">$ 73.79</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div id="div_ISRretenido_r_0" class="div_right el_monosp el_bold">$ 18.77</div>
+                            <div id="div_IVAretenido_r_0" class="div_right el_monosp el_bold">$ 36.89</div>
+                        </td>
+                        <td class="el_center"><input id="checkbox_contable_r_0" type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="el_bold">UBER PORTIER MEXICO</div>
+                            <div class="el_monosp">
+                                <span>2022-03-05T13:37:52</span>
+                                <span> - </span>
+                                <span class="el_bold">2021_1-1</span>
+                            </div>
+                            <p>Tasa ISR --- <span class="el_monosp el_bold">1.0%</span></p>
+                            <ul>
+                                <li>Base ISR --- <span class="el_monosp el_bold">$ 2661.32</span></li>
+                                <li>Base IVA --- <span class="el_monosp el_bold">$ 425.81</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="div_right el_monosp el_bold">$ 26.61</div>
+                            <div class="div_right el_monosp el_bold">$ 212.90</div>
+                        </td>
+                        <td class="el_center"><input type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="el_bold">UBER PORTIER MEXICO</div>
+                            <div class="el_monosp">
+                                <span>2022-03-03T16:06:10</span>
+                                <span> - </span>
+                                <span class="el_bold">2021_1-1</span>
+                            </div>
+                            <p>Tasa ISR --- <span class="el_monosp el_bold">1.0%</span></p>
+                            <ul>
+                                <li>Base ISR --- <span class="el_monosp el_bold">$ 2661.32</span></li>
+                                <li>Base IVA --- <span class="el_monosp el_bold">$ 425.81</span></li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="div_right el_monosp el_bold">$ 26.61</div>
+                            <div class="div_right el_monosp el_bold">$ 212.90</div>
+                        </td>
+                        <td class="el_center"><input type="checkbox"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="div_right el_bold">Base ISR Intermediarios</div>
+                            <div class="div_right el_bold">Base ISR Directo</div>
+                            <div class="div_right el_bold">ISR retenido</div>
+                        </td>
+                        <td>
+                            <div id="div_baseISRinter" class="div_right el_monosp el_bold">$ </div>
+                            <div id="div_baseISRdirect" class="div_right el_monosp el_bold">$ </div>
+                            <div id="div_ISRretenido" class="div_right el_monosp el_bold">$ 45.38</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="div_right el_bold">Base IVA Intermediarios</div>
+                            <div class="div_right el_bold">Base IVA Directo</div>
+                            <div class="div_right el_bold">IVA retenido</div>
+                        </td>
+                        <td>
+                            <div id="div_baseIVAinter" class="div_right el_monosp el_bold">$ </div>
+                            <div id="div_baseIVAdirect" class="div_right el_monosp el_bold">$ </div>
+                            <div id="div_IVAretenido" class="div_right el_monosp el_bold">$ 249.79</div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- Gastos -->
+            <table>
+                <thead>
+                    <tr class="el_center">
+                        <th class="th_conceptos">Gastos</th>
+                        <th class="th_montos">Montos</th>
+                        <th>Acreditable</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody_gastos">
+                    <tr>
+                        <td>
+                            <div id="div_razonSocial_g_0" class="el_bold">UBER PORTIER MEXICO</div>
+                            <div id="div_fecha_g_0" class="el_monosp">2022-03-22T02:32:38</div>
+                            <ul>
+                                <li id="li_concepto_g_0_0">Cuota de activación (suscripción) para servicios de intermediación/plataforma Uber Eats 14/3/22 - 20/3/22</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div id="div_subT_g_0" class="div_right el_monosp el_bold">$ 20.00</div>
+                            <div id="div_IVA_g_0" class="div_right el_monosp el_bold">$ 3.20</div>
+                            <div id="div_total_g_0" class="div_right el_monosp el_bold">$ 23.20</div>
+                        </td>
+                        <td class="el_center"><input id="checkbox_contable_g_0" type="checkbox" checked></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="el_bold">SERVICIO TATANACHO SA DE CV</div>
+                            <div class="el_monosp">2022-03-29T10:43:31</div>
+                            <ul>
+                                <li>PREMIUM - 32012</li>
+                            </ul>
+                        </td>
+                        <td>
+                            <div class="div_right el_monosp el_bold">$ 169.75</div>
+                            <div class="div_right el_monosp el_bold">$ 26.35</div>
+                            <div class="div_right el_monosp el_bold">$ 196.10</div>
+                        </td>
+                        <td class="el_center"><input type="checkbox" checked></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <div class="div_right el_bold">IVA Acreditable</div>
+                        </td>
+                        <td>
+                            <div id="div_IVAacreditable" class="div_right el_monosp el_bold">$ 87.10</div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </form>
+    </div>
+</body>
+</html>
